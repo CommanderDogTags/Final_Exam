@@ -13,7 +13,11 @@ export const Query = <T = any>(query: string, values?: any) => {
 };
 
 import books from './queries/books';
+import tokens from './queries/tokens';
+import authors from './queries/authors';
 
 export default {
-	books
+	books,
+	tokens,
+	authors
 }

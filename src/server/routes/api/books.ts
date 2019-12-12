@@ -43,12 +43,13 @@ router.post('/', async (req, res) => {
     }
 })
 
-router.delete('/:id', async (req, res) => {
+router.put('/:id', async (req, res) => {
     try {
-        let result = await
+        let result = await DB.books.editBook(req.body.title, req.body.author, req.body.price, req.body.categoryid, req.params.id)
+        res.json(result)
     } catch (e) {
         console.log(e)
-        res.sendStatus(500);
+        res.status(500);
     }
 })
 
