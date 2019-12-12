@@ -4,8 +4,9 @@ import * as passport from 'passport';
 import * as morgan from 'morgan';
 import routes from './routes';
 
-// import './middleware/localstrategy';
-// import './middleware/bearerstrategy';
+import './middleware/localstrategy';
+import './middleware/bearerstrategy';
+import './middleware/auth-checkpoints';
 
 const app = express();
 
