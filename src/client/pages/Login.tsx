@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { RouteComponentProps } from 'react-router';
 import { json, setStorage } from '../utils/api';
 
-
 const Login: React.FC<LoginProps> = props => {
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');

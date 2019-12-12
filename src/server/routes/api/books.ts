@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import DB from '../../db';
+import { isAdmin } from '../../middleware/auth-checkpoints'
 
 const router = Router(); 
 
@@ -13,7 +14,7 @@ router.get('/', async (req, res, next) => {
     }
 })
 
-router.get('/:id', async (req, res, next) => {
+router.get('/:id', isAdmin, async (req, res, next) => {
     try {
         let result = await DB.books.getOne(req.params.id);
         res.send(result);
@@ -23,7 +24,7 @@ router.get('/:id', async (req, res, next) => {
     }
 })
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', isAdmin, async (req, res) => {
     try {
         let result = await DB.books.deleteBook(req.params.id);
         res.json(result);
@@ -33,7 +34,7 @@ router.delete('/:id', async (req, res) => {
     }
 })
 
-router.post('/', async (req, res) => {
+router.post('/', isAdmin, async (req, res) => {
     try {
         let result = await DB.books.postBook(req.body.title, req.body.author, req.body.price, req.body.categoryid);
         res.json(result);
@@ -43,7 +44,7 @@ router.post('/', async (req, res) => {
     }
 })
 
-router.put('/:id', async (req, res) => {
+router.put('/:id', isAdmin, async (req, res) => {
     try {
         let result = await DB.books.editBook(req.body.title, req.body.author, req.body.price, req.body.categoryid, req.params.id)
         res.json(result)

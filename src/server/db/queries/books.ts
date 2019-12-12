@@ -6,7 +6,7 @@ const getOne = async (id: string) => Query<{}[]>(`SELECT b.id, c.name AS categor
 
 const deleteBook = async (id: string) => Query<{}>(`DELETE FROM books WHERE id =?`, [id]);
 
-const postBook = async (title: string, author: string, price: number, categoryid: number) => Query<{insertID:number}>(`INSERT INTO books (title, author, price, categoryid) VALUES (?)`, [[title, author, price, categoryid]]);
+const postBook = async (title: string, author: string, price: number, categoryid: number) => Query<{insertId:number}>(`INSERT INTO books (title, author, price, categoryid) VALUES (?)`, [[title, author, price, categoryid]]);
 
 const editBook = async (title: string, author: string, price: number, categoryid: number, id: string) => Query<{}>(`UPDATE books SET title=?, author=?, price=?, categoryid=? WHERE id=?`, [title, author, price, categoryid, id]);
 

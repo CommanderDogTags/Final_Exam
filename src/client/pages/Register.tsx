@@ -1,8 +1,26 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-
+import { useState } from 'react';
+import { RouteComponentProps } from 'react-router';
+import { json, setStorage } from '../utils/api';
 
 const Register: React.FC<RegisterProps> = props => {
+    const [email, setEmail] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
+    const [name, setName] = useState<string>('');
+
+    const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
+        e.preventDefault();
+        try {
+            let response: any = await json('/auth/register', 'POST', { email, password, name });
+            setStorage(response.token, { authorid: response.authorid, role: response.role});
+            props.history.push('/all');
+            alert('Registered!');
+        } catch (e) {
+            console.log(e);
+        }
+    };
+
     return (
         <>
             <h1 className="text-primary mt-5 text-center">Register!</h1>
@@ -32,6 +50,6 @@ const Register: React.FC<RegisterProps> = props => {
     );
 };
 
-interface RegisterProps {}
+interface RegisterProps extends RouteComponentProps<{id:string}> {}
 
 export default Register;
