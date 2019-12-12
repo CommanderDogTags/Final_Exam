@@ -21,7 +21,7 @@ const All: React.FC<AllProps> = props => {
 
     return (
         <>
-            <h1 className='text-primary mt-5 text-center'>All!</h1>
+            <h1 className='text-primary mt-5 text-center'>All Books!</h1>
 
             <div className='container d-flex justify-content-center'>
                 <Link to={`/compose`} className='btn btn-primary mx-2'>Add a Book!</Link>

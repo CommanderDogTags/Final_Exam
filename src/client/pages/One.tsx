@@ -21,7 +21,7 @@ const One: React.FC<OneProps> = props => {
 
     return (
         <>
-            <h1 className="text-primary mt-5 text-center">One!</h1>
+            <h1 className="text-primary mt-5 text-center">One Book!</h1>
 
             <article className='card border border-primary mt-5' key={`book-${book.id}`}>
                 <div className='card-header text-center'>

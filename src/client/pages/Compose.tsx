@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { RouteComponentProps } from 'react-router';
 import { json } from '../utils/api';
+import { Link } from 'react-router-dom';
 
 const Compose: React.FC<ComposeProps> = props => {
     const [title, setTitle] = useState<string>('');
@@ -40,6 +41,10 @@ const Compose: React.FC<ComposeProps> = props => {
     return (
         <>
             <h1 className="text-primary mt-5 text-center">Compose!</h1>
+
+            <div className='container d-flex justify-content-center'>
+            <Link to={`/all`} className='btn btn-primary mx-2 mb-2'>Back!</Link>
+            </div>
 
             <div>
                 <form className='form-group border border-primary p-3'>
