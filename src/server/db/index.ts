@@ -15,9 +15,11 @@ export const Query = <T = any>(query: string, values?: any) => {
 import books from './queries/books';
 import tokens from './queries/tokens';
 import authors from './queries/authors';
+import categories from './queries/categories';
 
 export default {
 	books,
 	tokens,
-	authors
+	authors,
+	categories
 }
