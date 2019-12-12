@@ -2,7 +2,7 @@ import { Query } from '../index';
 
 const findOne = async (id: number, token: string) => Query<{}[]>(`SELECT * FROM tokens WHERE id=? AND token=?`, [id, token]);
 
-const insert = async (userid: number) => Query<{insertID:number}>(`INSERT INTO tokens (userid) VALUES (?)`, [[userid]]);
+const insert = async (userid: number) => Query<{insertId:number}>(`INSERT INTO tokens (userid) VALUES (?)`, [[userid]]);
 
 const update = async (token: string, id: number) => Query(`UPDATE tokens SET token =? WHERE id =?`, [token, id]);
 
