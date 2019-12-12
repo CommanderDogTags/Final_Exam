@@ -4,5 +4,4 @@ export interface IBook {
     title: string;
     author: string;
     price: string;
-    _created: string;
 }
