@@ -32,7 +32,8 @@ const One: React.FC<OneProps> = props => {
                     <p>Author: {book.author}</p>
                     <p>Category: {book.category}</p>
                     <p>Price: {book.price}</p>
-                    <Link to={{pathname: `/edit/${book.id}`, state: {book}}} className='btn btn-primary'>Edit!</Link>
+                    <Link to={{pathname: `/edit/${book.id}`, state: {book}}} className='btn btn-primary mx-2'>Edit!</Link>
+                    <Link to={`/all`} className='btn btn-primary mx-2'>Back!</Link>
                 </div>
             </article>
         </>
