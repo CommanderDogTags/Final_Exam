@@ -9,16 +9,16 @@ export const tokenMiddleware: RequestHandler = (req: ReqUser, res, next) => {
 };
 
 export const isAdmin: RequestHandler = (req: ReqUser, res, next) => {
-    if (!req.user || req.user.role !== 'admin') {
-        return res.sendStatus(401);
-    } else {
+    if (req.user && req.user.role === 'admin') {
         return next();
+    } else {
+        res.sendStatus(401);
     }
 }
 
 interface ReqUser extends Request {
     user: {
-        id: number;
+        id: number
         role: string;
     }
 }

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { RouteComponentProps } from 'react-router';
-import { json } from '../utils/api';
+import { json, Author } from '../utils/api';
 import { Link } from 'react-router-dom';
 import { IBook } from '../utils/interface';
 
@@ -29,6 +29,10 @@ const Edit: React.FC<EditProps> = props => {
                 setTitle(props.location.state.book.title);
                 setAuthor(props.location.state.book.author);
                 setPrice(props.location.state.book.price);
+                if (!Author || Author.authorid === null || Author.role !== 'admin') {
+                    alert('You must be logged in to access this page!');
+                    props.history.replace('/login');
+                }
             } catch (e) {
                 console.log(e);
             }
