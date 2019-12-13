@@ -18,7 +18,6 @@ export const isAdmin: RequestHandler = (req: ReqUser, res, next) => {
 
 interface ReqUser extends Request {
     user: {
-        id: number
         role: string;
     }
 }

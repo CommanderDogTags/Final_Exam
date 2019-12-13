@@ -7,6 +7,6 @@ export default {
         database: 'bookstore'
     },
     auth: {
-        secret: 'secrettest'
+        secret: 'secrettext'
     }
 }
